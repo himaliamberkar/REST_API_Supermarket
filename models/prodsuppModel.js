@@ -1,7 +1,8 @@
+
 const { Sequelize, DataTypes } = require('sequelize');
 const Product = require('./productModel');
 const Supplier = require('./supplierModel');
-const sequelize = require('../../database');
+const sequelize = require('../database');
 
 const ProdSupp = sequelize.define('ProdSupp', {
   prod_supp_id: {
@@ -34,4 +35,3 @@ const ProdSupp = sequelize.define('ProdSupp', {
 });
 
 module.exports = ProdSupp;
-

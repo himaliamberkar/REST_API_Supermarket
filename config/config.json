@@ -1,10 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "rootuser",
-    "database": "test123",
-    "host": "localhost",
-    "port": "8000",
+    "password": null,
+    "database": "database_development",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
