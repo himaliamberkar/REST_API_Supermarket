@@ -120,6 +120,7 @@ class UserService {
       }
 
       await user.destroy({ transaction });
+      // Amitesh: use a separate file for messages.
       return { message: 'User deleted successfully' };
     });
   }
