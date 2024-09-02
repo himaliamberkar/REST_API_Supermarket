@@ -11,7 +11,7 @@ class genericService {
   }
 
   async findAll() {
-    return this.model.findAll();
+    return this.model.findAndCountAll();
   }
 
   async findById(id) {
