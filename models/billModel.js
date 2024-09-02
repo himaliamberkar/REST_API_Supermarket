@@ -3,7 +3,7 @@ const Product = require('./productModel');
 const Customer = require('./customerModel');
 const User = require('./usersModel');
 const sequelize = require('../database');
-
+// Amitesh:  five common attribute is missing
 const Bill = sequelize.define('Bill', {
   bill_id: {
     type: DataTypes.INTEGER,
