@@ -1,8 +1,8 @@
 
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../database');
-
-const Category = sequelize.define('Category', {
+// Amitesh: common attribute is missing do it for other modules
+const Category = sequelize.define('Category', { 
   cate_id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
