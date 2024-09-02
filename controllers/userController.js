@@ -5,11 +5,13 @@ exports.createUser = async (req, res, next) => {
     try {
       const user = await userService.createUser(req.body);
       console.log(user);
-  
+      // Amitesh :  Try to create re usable function for  response which send status code and data as per your need.
       res.status(200).send(user);
     } catch (err) {
+       // Amitesh: it should the the error. 
       res.status(404).send(error.error);
     }
+    // Amitesh : avoid using next here try to make it generic.
     next();
   };
 
@@ -29,6 +31,7 @@ exports.getUserById = async (req, res) => {
     const user = await userService.getUserById(req.params.id);
     // console.log(req.params.id)
     if (!user) {
+        // Amitesh: use reusable method
       return res.status(404).json({ error: 'User not found' }); // Respond with a 404 status if user is not found
     }
     res.status(200).json(user); // Respond with the user data and a 200 status
