@@ -158,14 +158,17 @@ class GenericController {
     }
   }
 
-  async getAll(req, res) {
+  async getFiltered(req, res) {
     try {
       const page = parseInt(req.query.page, 10) || 1;
       const limit = parseInt(req.query.limit, 10) || 10;
       const search = req.query.search || '';
+      const order = req.query.order || 'ASC';
+      const sort = req.query.sort || 'user_id';
 
       // Validate and set default limit
       const validLimit = Math.min(Math.max(parseInt(limit, 10), 1), 50);
+      const validOrder = order.toUpperCase() === 'DESC' ? 'DESC' : 'ASC';
 
       const offset = (page - 1) * validLimit;
       const whereClause = {};
@@ -180,6 +183,7 @@ class GenericController {
         where: whereClause,
         limit: validLimit,
         offset: offset,
+        order:[[sort, validOrder]]
       });
 
       res.status(OK).json({
@@ -191,6 +195,17 @@ class GenericController {
     } catch (err) {
       console.error(err);
       res.status(SERVER_ERROR).json({ error: 'Failed to retrieve items', details: err.message });
+    }
+  }
+
+  async getAll(req,res){
+    try {
+      const data = await this.service.findAll();
+      if (!data) {
+        throw new Error("Not found")
+      } return res.status(OK).json({message:"Found", data})
+    } catch (error) {
+      res.status(SERVER_ERROR).json({message:err.message});
     }
   }
 
