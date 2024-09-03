@@ -66,6 +66,7 @@ class UserController extends GenericController {
   constructor() {
     super(UserService);
   }
+  
 }
 
 module.exports = new UserController();

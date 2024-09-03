@@ -18,6 +18,6 @@ const Sequelize = require("sequelize");const sequelize = new Sequelize(
       console.log(err);
     });
   
-  sequelize.sync({});
+  sequelize.sync();
 
   module.exports = sequelize;

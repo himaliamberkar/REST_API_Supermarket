@@ -64,6 +64,10 @@ module.exports = {
         type: Sequelize.STRING,
         defaultValue: null,
       },
+      deletedAt: {
+        type: Sequelize.INTEGER,
+        defaultValue: null,
+      },
     });
   },
 

@@ -1,3 +1,4 @@
 module.exports={
-    error:"ERRORRRRRRRR"
+    SERVER_ERROR:404,
+    OK:200
 }
